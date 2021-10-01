@@ -26,7 +26,10 @@ app.post("/", (req, res) => {
     .then((res) => res.json)
     .then((resp) => {
       console.log("de la google good ", resp);
-      res.send(resp);
+      res.writeHead(302, {
+        Location: "http://www.google.com",
+      });
+      res.end();
     })
     .catch((err) => {
       console.log("de la google bad ", err);
