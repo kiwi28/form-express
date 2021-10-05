@@ -27,7 +27,12 @@ app.post("/", (req, res) => {
       return res.json;
     })
     .then((resp) => {
-      console.log("de la google good ", resp);
+      console.log(
+        "\n\n\n\n",
+        "--------------------de la google good----------- ",
+        resp,
+        "\n-----------------"
+      );
       console.log(
         "\n\n\n\n",
         "---------------------redirect  url",
