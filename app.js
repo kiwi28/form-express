@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  fetch(`https://script.google.com/macros/s/${res.body.scriptId}/exec`, {
+  fetch(`https://script.google.com/macros/s/${req.body.scriptId}/exec`, {
     body: JSON.stringify(req.body),
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
