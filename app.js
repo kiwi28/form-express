@@ -15,26 +15,25 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  console.log("before fetch log: ----", req.body);
-
-  fetch(
-    "https://script.google.com/macros/s/AKfycby8peWZGHEq_PjuLCGyoStI-X4OpmHlhRMjwVonXqgvDcGEeTrMj4UL-uxhqcSebFyj/exec",
-    {
-      body: JSON.stringify(req.body),
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      method: "post",
-    }
-  )
+  fetch(`https://script.google.com/macros/s/${res.body.scriptId}/exec`, {
+    body: JSON.stringify(req.body),
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    method: "post",
+  })
     .then((res) => {
       console.log("primul json", res);
       return res.json;
     })
     .then((resp) => {
       console.log("de la google good ", resp);
-
-      res.end();
+      console.log(
+        "\n\n\n\n",
+        "---------------------redirect  url",
+        "\n\n\n\n\n"
+      );
+      res.redirect(req.body.redirect);
     })
     .catch((err) => {
       console.log("de la google bad ", err);
