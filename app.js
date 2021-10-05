@@ -1,7 +1,8 @@
 import express from "express";
 import fetch from "node-fetch";
 const app = express();
-const port = 9900;
+
+("use strict");
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));
@@ -40,3 +41,5 @@ app.post("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+module.exports = app;
