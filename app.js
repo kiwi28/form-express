@@ -18,7 +18,7 @@ app.post("/", (req, res) => {
   console.log("before fetch log: ----", req.body);
 
   fetch(
-    "https://script.google.com/macros/s/AKfycbzCZD_zjF8J8wxwfLBOrJWayjAiGhjKd07pXKZF_e9Q-F8M1161YxTPR_GjbWbDltno/exec",
+    "https://script.google.com/macros/s/AKfycby8peWZGHEq_PjuLCGyoStI-X4OpmHlhRMjwVonXqgvDcGEeTrMj4UL-uxhqcSebFyj/exec",
     {
       body: JSON.stringify(req.body),
       headers: {
