@@ -1,14 +1,18 @@
 const express = require("express");
-const fetch = require("node-fetch");
+const fetch = require("cross-fetch");
 
 const app = express();
-const port = 9900;
+const PORT = process.env.PORT || 8080;
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Hello from kiwi's app engine");
+});
 
 app.post("/", (req, res) => {
   console.log("before fetch log: ----", req.body);
@@ -38,6 +42,6 @@ app.post("/", (req, res) => {
     });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`);
 });
